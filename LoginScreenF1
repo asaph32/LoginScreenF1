@@ -1,0 +1,152 @@
+import 'package:flutter/material.dart';
+
+class TelaLoginF1 extends StatelessWidget {
+  TelaLoginF1({Key? key}) : super(key: key);
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController subscribeController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Center(child: Text('F1 TV')),
+      ),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(13),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    Center(
+                      child: ListTile(
+                        title: Center(
+                          child: Text(
+                            'Entrar',
+                            style: TextStyle(color: Colors.black, fontSize: 40),
+                          ),
+                        ),
+                        subtitle: Center(
+                          child: Text(
+                            "Faça Login com sua conta F1",
+                            style: TextStyle(color: Colors.grey, fontSize: 20),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    TextField(
+                      onChanged: onChanged,
+                      onSubmitted: onSubmitted,
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      style: TextStyle(fontSize: 16),
+                      decoration: InputDecoration(
+                          hintText: 'Endereço de e-mail',
+                          border: OutlineInputBorder()),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    TextField(
+                      onChanged: onChanged,
+                      onSubmitted: onSubmitted,
+                      controller: passwordController,
+                      keyboardType: TextInputType.text,
+                      style: TextStyle(fontSize: 16),
+                      decoration: InputDecoration(
+                          hintText: 'Senha', border: OutlineInputBorder()),
+                      obscureText: true,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Esqueceu a senha',
+                        style: TextStyle(color: Colors.black, fontSize: 17),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    ElevatedButton(
+                        onPressed: Login,
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.all(16),
+                            primary: Color(0xFFD50000)),
+                        child: Text('ENTRAR')),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Center(
+                      child: Text(
+                        '------------- Nao tem Conta ? ----------------',
+                        style: TextStyle(color: Colors.black, fontSize: 20),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 13,
+                    ),
+                    Center(
+                      child: Text(
+                        'ASSINE PARA ASSISTIR',
+                        style: TextStyle(color: Colors.black87, fontSize: 30),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Container(
+                      alignment: Alignment.bottomCenter,
+                      margin: EdgeInsets.only(top: 22),
+                      child: ElevatedButton(
+                          onPressed: subscribe,
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 0, 0, 0)),
+                          child: Text(
+                            'SE INSCREVA',
+                            style: TextStyle(fontSize: 13),
+                          )),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void Login() {
+    String text = emailController.text;
+    print(text);
+    emailController.clear();
+
+    String text1 = passwordController.text;
+    print(text1);
+    passwordController.clear();
+    print('Entrando no Aplicativo');
+  }
+
+  void onChanged(String text) {
+    print(text);
+  }
+
+  void onSubmitted(String text) {
+    print(text);
+  }
+
+  void subscribe() {
+    print("Tela de Cadastro");
+  }
+}
